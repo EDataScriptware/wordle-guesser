@@ -1,4 +1,5 @@
 # Wordle Guesser
+![Wordle Guesser Image](wordle.png?raw=true)
 ## To Run Wordle Guesser
 *Assuming you have pipenv installed in your workspace...*
 1. `pipenv install` 
