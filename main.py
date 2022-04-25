@@ -1,9 +1,12 @@
+from os import CLD_CONTINUED
 from english_words import english_words_lower_alpha_set as complete_words
 import json
 from datetime import datetime
 
 guess_word = []
 guess_word_str = ''
+
+uninclusive_word = []
 
 print('Type `!` to stop')
 for x in range(1,6):
@@ -17,12 +20,36 @@ for x in range(1,6):
         print(f'{letter} is not a word.')
         exit(0)
 
+print('Words NOT to include...')
+print('Type `!` to stop')
+while True:
+    letter = input(f"Letter: ")
+    if letter == "!":
+        break
+    if letter.isalpha():
+        uninclusive_word.append(letter.lower())
+    else:
+        print(f'{letter} is not a word.')
+        exit(0)
+
+
 assumption_words = []
+continue_flag = False
 
 for word in complete_words:
     if len(word) != 5:
         continue
     counter = 0
+    
+    for y in uninclusive_word:
+        if y in word:
+            print(y)
+            print(word)
+            continue_flag = True
+
+    if continue_flag:
+        continue 
+
     for x in guess_word:
         if x not in word:
             break
