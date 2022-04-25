@@ -41,11 +41,9 @@ for word in complete_words:
         continue
     counter = 0
     
-    for y in uninclusive_word:
-        if y in word:
-            print(y)
-            print(word)
-            continue_flag = True
+    if (all(item in guess_word for item in word)):
+        print(word)
+        continue_flag = True
 
     if continue_flag:
         continue 
